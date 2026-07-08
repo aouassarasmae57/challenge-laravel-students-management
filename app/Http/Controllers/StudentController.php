@@ -41,4 +41,14 @@ class StudentController extends Controller
         Student::create($validatedData);
         return redirect(route('students.index'))->with('success','Student added successfully');
     }
+
+    public function destroy(Student $student){
+        $image = $student->image;
+        $path = public_path('photos/'.$image);
+        if(file_exists($path)){
+             unlink($path);
+        }
+        $student->delete();
+        return redirect(route('students.index'))->with('success','student deleted successfully');
+    }
 }
