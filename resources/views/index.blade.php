@@ -3,7 +3,11 @@
 
 @section('content')
 
-
+@if(session()->has('success'))
+<div>
+    {{ session('success') }}
+</div>
+@endif
 
 @if(count($students)>0)
 <table>
@@ -18,6 +22,7 @@
             <th>Description</th>
             <th>Created at</th>
             <th>Updated at</th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -36,6 +41,9 @@
                 <td>{{ $student->updated_at }}</td>
                 <td>
                     <a href="{{ route('students.show' , $student) }}" >show</a>
+                </td>
+                <td>
+                    <a href="{{ route('students.edit' , $student) }}">edit</a>
                 </td>
                 <td>
                     <form method="post" action="{{ route('students.destroy' , $student) }}">
