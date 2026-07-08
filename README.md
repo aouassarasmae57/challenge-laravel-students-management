@@ -25,7 +25,7 @@ copy .env.example .env
 
 #### Générer une clé de chiffrement unique (APP_KEY) dans le .env  (pour la sécurité de la config)
 ```
-php artisann key:generate
+php artisan key:generate
 ```
 
 ### 4. Créer la base de données SQLite dans le dossier database
