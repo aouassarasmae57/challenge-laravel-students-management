@@ -60,4 +60,6 @@
 @endif
 
 <a href="{{ route('students.create') }}">Add Student</a>
+
+{{ $students->links() }}
 @endsection

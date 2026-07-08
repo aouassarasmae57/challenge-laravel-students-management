@@ -9,7 +9,7 @@ use Illuminate\Validation\Rule;
 class StudentController extends Controller
 {
     public function index(){
-        $students = Student::all();
+        $students = Student::simplePaginate(5);
         return view('index' , compact('students'));
     }
 
